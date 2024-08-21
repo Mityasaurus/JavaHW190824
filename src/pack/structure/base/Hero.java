@@ -3,52 +3,73 @@ package pack.structure.base;
 import java.util.Random;
 
 public class Hero {
-    private static final Random random;
+    protected static final Random  random = new Random();
 
-    static {
-        random = new Random();
-    }
-
+    private String name;
+    private int hp;
     private int maxAttack;
     private boolean alive;
-    private int HP;
 
     {
         alive = true;
     }
 
-    public Hero(int maxAttack) {
-        setMaxAttack(maxAttack);
+    public Hero(String name, int hp, int maxAttack) {
+        this.name = name;
+        this.hp = hp;
+        this.maxAttack = maxAttack;
     }
 
-    public int getMaxAttack() {
-        return maxAttack;
-    }
-    public void setMaxAttack(int maxAttack) {
-        if (maxAttack > 0) this.maxAttack = maxAttack;
+    public final String getName() {
+        return name;
     }
 
-    public boolean isAlive() {
-        return alive;
-    }
-    public void setAlive(boolean alive) {
-        this.alive = alive;
+    public final void setName(String name) {
+        this.name = name;
     }
 
-    public int getHP() {
-        return HP;
+    public final int getHp() {
+        return hp;
     }
-    public void setHP(int HP) {
-        if(this.HP == 0){
+
+    public final void setHp(int hp) {
+        if(this.hp == 0){
             return;
         }
-       this.HP = Math.max(HP, 0);
-        if(this.HP == 0){
+
+        this.hp = Math.max(hp, 0);
+
+        if(this.hp == 0){
             alive = false;
         }
     }
 
+    public final int getMaxAttack() {
+        return maxAttack;
+    }
+
+    public final void setMaxAttack(int maxAttack) {
+        this.maxAttack = maxAttack;
+    }
+
+    public final boolean isAlive() {
+        return alive;
+    }
+
+    public final void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
+    @Override
+    public String toString() {
+        return name + ": { " + "hp: " + hp + "; Max attack: " + maxAttack + "; Alive: " + alive + " }";
+    }
+
+    public int attack(){
+        return random.nextInt(maxAttack + 1);
+    }
+
     public void takeDamage(int attack){
-        setHP(this.HP - attack);
+        setHp(this.hp - attack);
     }
 }
