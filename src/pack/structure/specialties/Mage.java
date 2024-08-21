@@ -20,7 +20,7 @@ public class Mage extends Hero {
 
     @Override
     public String toString() {
-        return super.toString() + "\nType: Mage";
+        return super.toString() + "\nClass: Mage";
     }
 
     @Override

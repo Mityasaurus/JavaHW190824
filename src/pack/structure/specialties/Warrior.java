@@ -20,7 +20,7 @@ public class Warrior extends Hero {
 
     @Override
     public String toString() {
-        return super.toString() + "\nType: Warrior";
+        return super.toString() + "\nClass: Warrior";
     }
 
     @Override
