@@ -2,7 +2,7 @@ package pack.structure.specialties;
 
 import pack.structure.base.Hero;
 
-public class Warrior extends Hero {
+public abstract class Warrior extends Hero {
     private int armor;
 
     public Warrior(String name, int hp, int maxAttack, int armor) {

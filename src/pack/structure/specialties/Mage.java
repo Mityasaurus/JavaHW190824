@@ -2,7 +2,7 @@ package pack.structure.specialties;
 
 import pack.structure.base.Hero;
 
-public class Mage extends Hero {
+public abstract class Mage extends Hero {
     private int mana;
 
     public Mage(String name, int hp, int maxAttack, int mana) {

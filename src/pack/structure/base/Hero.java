@@ -2,7 +2,7 @@ package pack.structure.base;
 
 import java.util.Random;
 
-public class Hero {
+public abstract class Hero {
     protected static final Random  random = new Random();
 
     private String name;
@@ -66,7 +66,7 @@ public class Hero {
     }
 
     public int attack(){
-        return random.nextInt(maxAttack + 1);
+        return alive ? random.nextInt(maxAttack + 1) : 0;
     }
 
     public void takeDamage(int attack){
