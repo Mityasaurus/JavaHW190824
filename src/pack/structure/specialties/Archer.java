@@ -2,7 +2,7 @@ package pack.structure.specialties;
 
 import pack.structure.base.Hero;
 
-public class Archer extends Hero {
+public abstract class Archer extends Hero {
     private int arrows;
 
     public Archer(String name, int hp, int maxAttack, int arrows) {
