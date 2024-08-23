@@ -37,10 +37,6 @@ public abstract class Hero {
     }
 
     public final void setHp(int hp) {
-        if(this.hp == 0){
-            return;
-        }
-
         this.hp = Math.max(hp, 0);
 
         if(this.hp == 0){
@@ -74,6 +70,6 @@ public abstract class Hero {
     }
 
     public void takeDamage(int attack){
-        setHp(this.hp - attack);
+        setHp(this.hp - Math.max(attack, 0));
     }
 }
