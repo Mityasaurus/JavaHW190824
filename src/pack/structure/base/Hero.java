@@ -3,7 +3,11 @@ package pack.structure.base;
 import java.util.Random;
 
 public abstract class Hero {
-    protected static final Random  random = new Random();
+    protected static final Random random;
+
+    static {
+        random = new Random();
+    }
 
     private String name;
     private int hp;
