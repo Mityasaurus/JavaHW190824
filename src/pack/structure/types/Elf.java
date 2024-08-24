@@ -20,6 +20,7 @@ public final class Elf extends Archer {
         int attack = super.attack();
         if(attack == super.getMaxAttack() * 2 || attack == 0){
             super.setArrows(super.getArrows() + 1);
+            System.out.println(super.getName() + " got an arrow back");
         }
         return attack;
     }

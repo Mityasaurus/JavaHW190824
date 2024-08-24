@@ -18,6 +18,7 @@ public final class Hunter extends Archer {
         int attack = super.attack();
         if(super.getArrows() > 0 && random.nextInt(7) == random.nextInt(7)){
             attack *= 2;
+            System.out.println(super.getName() + " inflicted " + attack + " critical damage");
         }
         return attack;
     }

@@ -65,11 +65,21 @@ public abstract class Hero {
         return name + ": { " + "hp: " + hp + "; Max attack: " + maxAttack + "; Alive: " + alive + " }";
     }
 
+    public String toShortInfo(){
+        String str = "{" + name + ": " + hp + " hp";
+        if(!alive){
+            str += " (Dead)";
+        }
+        str += "}";
+        return str;
+    }
+
     public int attack(){
         return alive ? random.nextInt(maxAttack + 1) : 0;
     }
 
     public void takeDamage(int attack){
         setHp(this.hp - Math.max(attack, 0));
+        System.out.println(name + " got " + Math.max(attack, 0) + " damage");
     }
 }

@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class Squad {
     private final Random random = new Random();
+    private static int squadsCounter = 1;
 
     private final Hero[] heroes;
 
@@ -21,15 +22,16 @@ public class Squad {
         for (int i = 0; i < heroes.length; i++) {
             type = Types.values()[random.nextInt(Types.values().length)];
             heroes[i] = switch (type){
-                case PALADIN -> new Paladin("Paladin", 110, 30, 20);
-                case BERSERK -> new Berserk("Berserk", 130, 50, 13);
-//                case WIZARD -> new Wizard("Wizard", 1, 2, 3);
-//                case WARLOCK -> new Warlock("Warlock", 1, 2, 3);
-//                case ELF -> new Elf("Elf", 1, 2, 3);
-//                case HUNTER -> new Hunter("Hunter", 1, 2, 3);
+                case PALADIN -> new Paladin("Paladin " + squadsCounter, 120, 20, 12);
+                case BERSERK -> new Berserk("Berserk " + squadsCounter, 140, 30, 7);
+                case WIZARD -> new Wizard("Wizard " + squadsCounter, 110, 20, 20);
+                case WARLOCK -> new Warlock("Warlock " + squadsCounter, 130, 30, 12);
+                case ELF -> new Elf("Elf " + squadsCounter, 120, 20, 10);
+                case HUNTER -> new Hunter("Hunter " + squadsCounter, 120, 30, 10);
                 default -> throw new IllegalStateException("Unexpected value: " + type);
             };
         }
+        squadsCounter++;
     }
 
     public boolean anyAlive(){
@@ -52,5 +54,15 @@ public class Squad {
                 return hero;
             }
         }
+    }
+
+    public String toShortInfo(){
+        StringBuilder sb = new StringBuilder();
+
+        for (Hero hero : heroes) {
+            sb.append(hero.toShortInfo()).append("\n");
+        }
+
+        return sb.toString();
     }
 }

@@ -17,6 +17,7 @@ public final class Warlock extends Mage {
     public void takeDamage(int attack) {
         if(super.getMana() > 0 && random.nextInt(3) == random.nextInt(3)){
             attack /= 2;
+            System.out.println(super.getName() + " blocked " + attack + " damage");
         }
         super.takeDamage(attack);
     }

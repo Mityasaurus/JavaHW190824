@@ -15,8 +15,10 @@ public final class Paladin extends Warrior {
     //з шансом 10% може заблокувати весь дамаг якщо є хоча б 1 одиницю армору
     @Override
     public void takeDamage(int attack) {
+        int oldAttack = attack;
         if(super.getArmor() > 0 && random.nextInt(10) == random.nextInt(10)) {
             attack = super.getArmor();
+            System.out.println(super.getName() + " blocked " + oldAttack + " damage");
         }
 
         super.takeDamage(attack);

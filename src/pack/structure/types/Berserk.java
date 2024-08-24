@@ -31,21 +31,23 @@ public final class Berserk extends Warrior {
     }
 
     //коли повністю збивають армор впадає у рейдж
-    //наступна атака нанесе максимальний дамаг у 4-кратному розмірі
+    //наступна атака нанесе максимальний дамаг у 3-кратному розмірі
     @Override
     public void takeDamage(int attack) {
         super.takeDamage(attack);
         if(super.getArmor() == 0){
             setRage(true);
+            System.out.println(super.getName() + " went into rage");
         }
     }
 
     @Override
     public int attack() {
         int attack = super.attack();
-        if(rage){
+        if(isRage()){
             setRage(false);
-            attack = super.getMaxAttack() * 4;
+            attack = super.getMaxAttack() * 3;
+            System.out.println(super.getName() + " attacked on rage");
         }
         return attack;
     }

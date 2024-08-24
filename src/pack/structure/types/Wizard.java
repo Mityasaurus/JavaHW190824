@@ -18,6 +18,7 @@ public final class Wizard extends Mage {
         int attack = super.attack();
         if(super.getMana() > 0 && random.nextInt(7) == random.nextInt(7)){
             attack = super.getMaxAttack() + super.getMana();
+            System.out.println(super.getName() + " did " + attack + " critical damage");
         }
         return attack;
     }

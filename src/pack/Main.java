@@ -4,6 +4,6 @@ import pack.groups.BattleField;
 
 public class Main {
     public static void main(String[] args) {
-        new BattleField(2).fight();
+        new BattleField(3).fight();
     }
 }
