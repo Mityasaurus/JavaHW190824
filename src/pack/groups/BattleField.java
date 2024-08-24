@@ -45,7 +45,7 @@ public class BattleField {
                 //1
                 //Thread.sleep(1000);
                 //2
-                TimeUnit.SECONDS.sleep(0.5);
+                TimeUnit.SECONDS.sleep(1);
             } catch (Exception e){
                 e.printStackTrace(System.err);
             }
